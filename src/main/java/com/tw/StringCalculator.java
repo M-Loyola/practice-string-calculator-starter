@@ -9,7 +9,9 @@ public class StringCalculator {
         if (string.isEmpty()) {
             return 0;
         }
-        return Arrays.stream(string.split(","))
+        return Arrays.stream(string.split("[,\n;]"))
+                .map(s -> s.replaceAll("[^0-9]", ""))
+                .filter(s -> !s.isEmpty())
                 .mapToInt(Integer::parseInt)
                 .sum();
     }
