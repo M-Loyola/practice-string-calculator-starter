@@ -9,8 +9,8 @@ public class StringCalculator {
         if (string.isEmpty()) {
             return 0;
         }
-        String[] splitted = string.split(",");
-        int sum = Arrays.stream(splitted).mapToInt(Integer::parseInt).sum();
-        return sum;
+        return Arrays.stream(string.split(","))
+                .mapToInt(Integer::parseInt)
+                .sum();
     }
 }
